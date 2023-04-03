@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Simulacion</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Simulacion un crud para inventario de ropa</h2>
+                <form action="">
+                    <label for="">ID</label>
+                    <input type="text" class="form-control" name="id" [(ngModel)]="formulario.id">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="formulario.nombre">
+                    <label for="">Precio</label>
+                    <input type="text" class="form-control" name="precio" [(ngModel)]="formulario.precio">
+                    <button class="btn btn-primary mt-3" (click)="agregar()">Agregar</button>
+                    <button class="btn btn-warning mt-3" (click)="actualizar()">Actualizar</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <h2>listado de productos</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Eliminar</th>
+                        <th>Seleccionar</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let articulos of inventario">
+                            <td>{{ articulos.id}}</td>
+                            <td>{{ articulos.nombre}}</td>
+                            <td>{{ articulos.precio}}</td>
+                            <td><button class="btn btn-danger" (click)="eliminar(articulos.id)">
+                                Eliminar
+                            </button>
+                            </td>
+                            <td><button class="btn btn-info" (click)="seleccionar(articulos)">
+                                Seleccionar
+                            </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+</html>
